@@ -4,6 +4,10 @@
 
 An implementation of the classic Snake game as a webpage.
 
+## How to play online
+
+The most recent version of the game can always be played at [https://snakejs-247n.onrender.com/](https://snakejs-247n.onrender.com/).
+
 ## How to run locally
 
 Make sure you have npm installed.

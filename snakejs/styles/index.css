@@ -9,3 +9,31 @@ body {
 
     color: white;
 }
+
+#ctn_app {
+    display: flex;
+    flex-direction: column;
+    padding: 5vmin;
+}
+
+#main_panel {
+    text-align: center;
+    align-self: center;
+    flex: 0 1 25%;
+}
+
+#main_grid {
+    background-color: #243424;
+    width: 60vmin;
+    height: 60vmin;
+    margin: 32px auto;
+
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+
+.snake {
+    background-color: #0bf40a;
+}
+

@@ -7,7 +7,9 @@
 body {
     background-color: #091109;
 
-    color: white;
+    color: #ccfbe8;
+
+    font-family: 'Averia Libre', cursive;
 }
 
 #ctn_app {
@@ -20,6 +22,11 @@ body {
     text-align: center;
     align-self: center;
     flex: 0 1 25%;
+}
+
+#game-title {
+    margin-bottom: 24px;
+    font-size: 3rem;
 }
 
 #main_grid {
@@ -35,5 +42,11 @@ body {
 
 .snake {
     background-color: #0bf40a;
+}
+
+footer {
+    text-align: center;
+    margin-top: 16px;
+    font-size: small;
 }
 

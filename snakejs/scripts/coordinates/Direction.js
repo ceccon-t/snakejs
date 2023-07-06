@@ -7,30 +7,33 @@ const DIRS = {
     RIGHT: 4,
 }
 
+// For optimization: avoid recalculating constant values all the time
+const OPPOSITES = {};
+OPPOSITES[DIRS.UP] = DIRS.DOWN;
+OPPOSITES[DIRS.DOWN] = DIRS.UP;
+OPPOSITES[DIRS.LEFT] = DIRS.RIGHT;
+OPPOSITES[DIRS.RIGHT] = DIRS.LEFT;
+
+// For optimization: avoid recalculating constant values all the time
+const DISPLACEMENTS = {};
+DISPLACEMENTS[DIRS.UP] = new Displacement(-1, 0);
+DISPLACEMENTS[DIRS.DOWN] = new Displacement(1, 0);
+DISPLACEMENTS[DIRS.LEFT] = new Displacement(0, -1);
+DISPLACEMENTS[DIRS.RIGHT] = new Displacement(0, 1);
+
 class Direction {
 
     constructor(dir) {
         this.dir = dir;
+        this.displacement = DISPLACEMENTS[this.dir];
     }
 
     isOpposite(otherDirection) {
-        return (this.dir === DIRS.UP && otherDirection.dir === DIRS.DOWN)
-                || (this.dir === DIRS.DOWN && otherDirection.dir === DIRS.UP)
-                || (this.dir === DIRS.LEFT && otherDirection.dir === DIRS.RIGHT)
-                || (this.dir === DIRS.RIGHT && otherDirection.dir === DIRS.LEFT);
+        return OPPOSITES[this.dir] === otherDirection.dir;
     }
 
     asDisplacement() {
-        switch(this.dir) {
-            case DIRS.UP:
-                return new Displacement(-1, 0);
-            case DIRS.DOWN:
-                return new Displacement(1, 0);
-            case DIRS.LEFT:
-                return new Displacement(0, -1);
-            case DIRS.RIGHT:
-                return new Displacement(0, 1);
-        };
+        return this.displacement;
     }
 
 }

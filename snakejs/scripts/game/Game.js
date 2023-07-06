@@ -10,6 +10,7 @@ class Game {
         this.views = views;
 
         this.currentDirection = Directions.right();
+        this.nextDirection = this.currentDirection;
 
         this.views.initializeGrid();
 
@@ -47,7 +48,19 @@ class Game {
     }
 
     _tick() {
+        this.currentDirection = this.nextDirection;
+        
         this._movePlayer();
+    }
+
+    attemptChangingDirection(newDirection) {
+        if (this.currentDirection.isOpposite(newDirection)) return;
+
+        this._changeDirection(newDirection);
+    }
+
+    _changeDirection(newDirection) {
+        this.nextDirection = newDirection;
     }
 
     start() {

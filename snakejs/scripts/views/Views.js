@@ -24,6 +24,24 @@ class Views {
             this.cells[i] = new Array(this.totalColumns);
         }
 
+        config.isOnMobile() ? this._configureForMobile() : this._configureForDesktop();
+
+    }
+
+    _configureForMobile() {
+        document.getElementById('ctn_app').classList.remove('desktop');
+        document.getElementById('ctn_app').classList.add('mobile');
+
+        document.getElementById('control-pad').classList.remove('desktop');
+        document.getElementById('control-pad').classList.add('mobile');
+    }
+
+    _configureForDesktop() {
+        document.getElementById('ctn_app').classList.remove('mobile');
+        document.getElementById('ctn_app').classList.add('desktop');
+
+        document.getElementById('control-pad').classList.remove('mobile');
+        document.getElementById('control-pad').classList.add('desktop');
     }
 
     _getCellId(row, col) {

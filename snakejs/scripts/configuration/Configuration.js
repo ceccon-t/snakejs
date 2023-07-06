@@ -1,4 +1,20 @@
-const MILLISECONDS_PER_TURN = 300;
+const MILLISECONDS_PER_TURN_MOBILE = 300;  
+const MILLISECONDS_PER_TURN_DESKTOP = 150;
+
+const onMobile = () => {
+    const mobileAgentMatches = [
+        'Android',
+        'webOS',
+        'iPhone',
+        'iPad'
+    ];
+
+    const matchedMobile = mobileAgentMatches.some(item => {
+        return navigator.userAgent.includes(item);
+    });
+
+    return matchedMobile;
+}
 
 class Configuration {
     
@@ -6,7 +22,12 @@ class Configuration {
         this.rows = rows;
         this.columns = columns;
 
-        this._timeIncrement = MILLISECONDS_PER_TURN;
+        this.onMobile = onMobile();
+
+        // Control pad event response is slow depending on mobile hardware
+        // so it is better to make the game slower in this case
+        this._timeIncrement = this.onMobile? MILLISECONDS_PER_TURN_MOBILE : MILLISECONDS_PER_TURN_DESKTOP;
+
     }
 
     totalRows() {
@@ -19,6 +40,10 @@ class Configuration {
 
     timeIncrement() {
         return this._timeIncrement;
+    }
+
+    isOnMobile() {
+        return this.onMobile;
     }
 
 }

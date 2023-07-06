@@ -6,7 +6,14 @@ class Controls {
         this.game = game;
         this.config = configuration;
 
+        this._registerHandlers();
+
+    }
+
+    _registerHandlers() {
         addEventListener('keydown', (e) => this._handleKeyPressed(e));
+
+        if (this.config.isOnMobile()) this._registerControlPadEvents();
     }
 
     _handleKeyPressed(e) {
@@ -36,6 +43,14 @@ class Controls {
                 break;
         }
     }
+
+    _registerControlPadEvents() {
+        document.getElementById('btn_pad_up').onclick = () => this.game.attemptChangingDirection(Directions.up());
+        document.getElementById('btn_pad_down').onclick = () => this.game.attemptChangingDirection(Directions.down());
+        document.getElementById('btn_pad_left').onclick = () => this.game.attemptChangingDirection(Directions.left());
+        document.getElementById('btn_pad_right').onclick = () => this.game.attemptChangingDirection(Directions.right());
+    }
+
 }
 
 export {

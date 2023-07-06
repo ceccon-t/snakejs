@@ -1,7 +1,15 @@
 * {
+    /* CSS reset */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    /*  
+        Prevent zoom when double tapping on mobile,
+        as that can move the grid out of sight 
+        when using the control pad
+    */
+    touch-action: manipulation; 
 }
 
 body {
@@ -16,6 +24,12 @@ body {
     display: flex;
     flex-direction: column;
     padding: 5vmin;
+}
+
+@media(orientation: landscape) {
+    #ctn_app.mobile {
+        flex-direction: row;
+    }
 }
 
 #main_panel {
@@ -42,6 +56,36 @@ body {
 
 .snake {
     background-color: #0bf40a;
+}
+
+#control-pad {
+    text-align: center;
+    align-self: center;
+    margin-top: 50px;
+}
+
+#control-pad.desktop {
+    display: none;
+}
+
+#control-pad.mobile {
+    display: block;
+}
+
+.cpad_button {
+    padding: 5.5vh;
+    background-color: gray;
+    border-style: none;
+    border-radius: 20%;
+    opacity: 33%;
+}
+
+#btn_pad_up {
+    margin-bottom: 2.5vh;
+}
+
+#btn_pad_down {
+    margin-top: 2.5vh;
 }
 
 footer {

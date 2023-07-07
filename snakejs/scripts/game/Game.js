@@ -25,6 +25,7 @@ class Game {
         this.nextDirection = this.currentDirection;
 
         this.score = 0;
+        this.playing = true;
     }
 
     _initializeSnakeInPosition() {
@@ -64,11 +65,19 @@ class Game {
         const displacement = this.currentDirection.asDisplacement();
         const nextPos = curHead.move(displacement);
 
+        // Hit wall
         if (!this.grid.withinBounds(nextPos.row(), nextPos.column())) {
+            this._end();
             return;
         }
 
         const foundAtNextPos = this.grid.at(nextPos.row(), nextPos.column());
+
+        // Bitten itself
+        if (foundAtNextPos === ENTITY_TYPES.SNAKE) {
+            this._end();
+            return;
+        }
 
         // Head
         this.snake.moveHead(nextPos);
@@ -88,7 +97,13 @@ class Game {
 
     }
 
+    _end() {
+        this.playing = false;
+    }
+
     _tick() {
+        if (!this.playing) return;
+
         this.currentDirection = this.nextDirection;
         
         this._movePlayer();

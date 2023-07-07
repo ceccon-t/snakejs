@@ -58,6 +58,10 @@ body {
     background-color: #0bf40a;
 }
 
+.food {
+    background-color: #c83c3a;
+}
+
 #control-pad {
     text-align: center;
     align-self: center;

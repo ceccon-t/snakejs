@@ -160,7 +160,7 @@ describe('allAvailableCells()', () => {
 
         // Assert
         allAvailable.length === rows*cols;
-        allAvailable.forEach(c => expect(c).toEqual(ENTITY_TYPES.EMPTY));
+        allAvailable.forEach(c => expect(grid.at(c.row(), c.column())).toEqual(ENTITY_TYPES.EMPTY));
     });
 
     it('should not return cell with snake as available', () => {
@@ -177,7 +177,7 @@ describe('allAvailableCells()', () => {
 
         // Assert
         allAvailable.length === (rows*cols)-1;
-        allAvailable.forEach(c => expect(c).toEqual(ENTITY_TYPES.EMPTY));
+        allAvailable.forEach(c => expect(grid.at(c.row(), c.column())).toEqual(ENTITY_TYPES.EMPTY));
     });
 
     it('should not return cell with food as available', () => {
@@ -194,7 +194,7 @@ describe('allAvailableCells()', () => {
 
         // Assert
         allAvailable.length === (rows*cols)-1;
-        allAvailable.forEach(c => expect(c).toEqual(ENTITY_TYPES.EMPTY));
+        allAvailable.forEach(c => expect(grid.at(c.row(), c.column())).toEqual(ENTITY_TYPES.EMPTY));
     });
 
     it('should return cell that was cleared as available', () => {
@@ -212,7 +212,7 @@ describe('allAvailableCells()', () => {
 
         // Assert
         allAvailable.length === rows*cols;
-        allAvailable.forEach(c => expect(c).toEqual(ENTITY_TYPES.EMPTY));
+        allAvailable.forEach(c => expect(grid.at(c.row(), c.column())).toEqual(ENTITY_TYPES.EMPTY));
     });
 
 });

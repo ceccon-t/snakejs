@@ -1,4 +1,5 @@
 import { ENTITY_TYPES } from "../entityTypes/EntityTypes.js";
+import { Position } from "../coordinates/Position.js";
 
 class Grid {
 
@@ -35,7 +36,7 @@ class Grid {
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
                 if (this.grid[i][j] === ENTITY_TYPES.EMPTY) { 
-                    availables.push(this.grid[i][j]);
+                    availables.push(new Position(i, j));
                 }
             }
         }

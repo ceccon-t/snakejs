@@ -18,9 +18,10 @@ const onMobile = () => {
 
 class Configuration {
     
-    constructor(rows, columns) {
+    constructor(rows, columns, pointsPerFood) {
         this.rows = rows;
         this.columns = columns;
+        this._scoreIncrement = pointsPerFood;
 
         this.onMobile = onMobile();
 
@@ -40,6 +41,10 @@ class Configuration {
 
     timeIncrement() {
         return this._timeIncrement;
+    }
+
+    scoreIncrement() {
+        return this._scoreIncrement;
     }
 
     isOnMobile() {

@@ -10,9 +10,6 @@ class Game {
         this.config = configuration;
         this.views = views;
 
-        this.currentDirection = Directions.right();
-        this.nextDirection = this.currentDirection;
-
         this.views.initializeGrid();
 
         this._initializeGameState();
@@ -20,9 +17,17 @@ class Game {
     }
 
     _initializeGameState() {
-        // Initializing grid
         this.grid = new Grid(this.config.totalRows(), this.config.totalColumns());
-        
+        this.snake = this._initializeSnakeInPosition();
+        this._initializeFood();
+
+        this.currentDirection = Directions.right();
+        this.nextDirection = this.currentDirection;
+
+        this.score = 0;
+    }
+
+    _initializeSnakeInPosition() {
         // Initializing snake
         const initialPositions = [new Position(9, 3), new Position(9, 4), new Position(9, 5)];
         const snake = new Snake(initialPositions);
@@ -32,21 +37,26 @@ class Game {
             this.views.displayCellAs(pos.row(), pos.column(), ENTITY_TYPES.SNAKE);
         });
 
-        this.snake = snake;
-
-        // Initializing foods
-        for (let i = 0; i < 3; i++) {
-            this.addFood();
-        }
-
+        return snake;
     }
 
-    addFood() {
+    _initializeFood() {
+        for (let i = 0; i < 3; i++) {
+            this._addFood();
+        }
+    }
+
+    _addFood() {
         const cellsAvailable = this.grid.allAvailableCells();
         const randomIndex = Math.floor(Math.random() * cellsAvailable.length);
         const newFoodPosition = cellsAvailable[randomIndex];
         this.grid.setAt(newFoodPosition.row(), newFoodPosition.column(), ENTITY_TYPES.FOOD);
         this.views.displayCellAs(newFoodPosition.row(), newFoodPosition.column(), ENTITY_TYPES.FOOD);
+    }
+
+    _incrementScore() {
+        this.score += this.config.scoreIncrement();
+        this.views.updateScore(this.score);
     }
 
     _movePlayer() {
@@ -66,7 +76,8 @@ class Game {
         this.views.displayCellAs(nextPos.row(), nextPos.column(), ENTITY_TYPES.SNAKE);
 
         if (foundAtNextPos === ENTITY_TYPES.FOOD) {
-            this.addFood();
+            this._incrementScore();
+            this._addFood();
         } else {
             // Tail
             const clearedTail = this.snake.moveTail();

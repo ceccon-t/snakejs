@@ -5,10 +5,12 @@ import { Controls } from "./controls/Controls.js";
 
 const TOTAL_ROWS = 20;
 const TOTAL_COLUMNS = 20;
+const POINT_PER_FOOD = 15;
 
 const configuration = new Configuration(
     TOTAL_ROWS,
-    TOTAL_COLUMNS
+    TOTAL_COLUMNS,
+    POINT_PER_FOOD
 );
 
 const views = new Views(configuration);

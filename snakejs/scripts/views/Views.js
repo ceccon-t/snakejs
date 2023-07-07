@@ -18,6 +18,8 @@ class Views {
 
         this.mainGridElement = document.getElementById('main_grid');
 
+        this.scoreElement = document.getElementById('score');
+
         // Keep grid representation in memory
         this.cells = new Array(this.totalRows);
         for (let i = 0; i < this.totalColumns; i++) {
@@ -64,6 +66,10 @@ class Views {
 
     displayCellAs(row, col, type) {
         this.cells[row][col].setAttribute('class', _entityTypeToCssClass(type));
+    }
+
+    updateScore(newScore) {
+        this.scoreElement.innerHTML = newScore;
     }
 
 }

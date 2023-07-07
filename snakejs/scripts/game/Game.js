@@ -32,6 +32,7 @@ class Game {
 
         this.score = 0;
         this.playing = true;
+        this.paused = false;
 
         this.views.hideGameOverScreen();
     }
@@ -104,6 +105,10 @@ class Game {
 
     }
 
+    togglePause() {
+        this.paused = !this.paused;
+    }
+
     restart() {
         this.views.reset();
         this._initializeMatchState();
@@ -122,7 +127,7 @@ class Game {
     }
 
     _tick() {
-        if (!this.playing) return;
+        if (!this.playing || this.paused) return;
 
         this.currentDirection = this.nextDirection;
         

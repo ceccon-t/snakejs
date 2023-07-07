@@ -11,6 +11,7 @@ class Controls {
     }
 
     _registerHandlers() {
+        document.getElementById('btn_pause').onclick = () => this.game.togglePause();
         document.getElementById('btn_restart').onclick = () => this.game.restart();
 
         addEventListener('keydown', (e) => this._handleKeyPressed(e));
@@ -51,6 +52,11 @@ class Controls {
             case 'Escape':
                 e.preventDefault();
                 this.game.restart();
+                break;
+
+            case 'Space':
+                e.preventDefault();
+                this.game.togglePause();
                 break;
         }
     }

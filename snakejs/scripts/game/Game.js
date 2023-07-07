@@ -32,6 +32,8 @@ class Game {
 
         this.score = 0;
         this.playing = true;
+
+        this.views.hideGameOverScreen();
     }
 
     _initializeSnakeInPosition() {
@@ -100,7 +102,11 @@ class Game {
             this.views.displayCellAs(clearedTail.row(), clearedTail.column(), ENTITY_TYPES.EMPTY);
         }
 
+    }
 
+    restart() {
+        this.views.reset();
+        this._initializeMatchState();
     }
 
     _end() {

@@ -93,6 +93,18 @@ class Views {
         this.gameOverScreen.hide();
     }
 
+    reset() {
+        // Clear main grid
+        this.cells.forEach(row => {
+            row.forEach(cell => {
+                cell.setAttribute('class', '');
+            })
+        });
+
+        // Set score to 0
+        this.scoreElement.innerHTML = 0;
+    }
+
 }
 
 export {

@@ -43,6 +43,22 @@ body {
     font-size: 3rem;
 }
 
+#game-controls {
+    margin-top: 24px;
+}
+
+.game_btn {
+    background-color: #243424;
+    color: #ccfbe8;
+    padding: 1vh;
+    width: 92px;
+    border-style: none;
+    border-radius: 20%;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-right: 4px;
+}
+
 #main_grid {
     background-color: #243424;
     width: 60vmin;

@@ -11,6 +11,8 @@ class Controls {
     }
 
     _registerHandlers() {
+        document.getElementById('btn_restart').onclick = () => this.game.restart();
+
         addEventListener('keydown', (e) => this._handleKeyPressed(e));
 
         if (this.config.isOnMobile()) this._registerControlPadEvents();
@@ -18,6 +20,8 @@ class Controls {
 
     _handleKeyPressed(e) {
         switch(e.code) {
+
+            // Movements
             case 'ArrowUp':
                 e.preventDefault(); // otherwise might scroll page depending on screen res
             case 'KeyW':
@@ -40,6 +44,13 @@ class Controls {
                 e.preventDefault();
             case 'KeyD':
                 this.game.attemptChangingDirection(Directions.right());
+                break;
+
+
+            // Game controls
+            case 'Escape':
+                e.preventDefault();
+                this.game.restart();
                 break;
         }
     }

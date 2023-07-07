@@ -19,6 +19,7 @@ class Views {
         this.mainGridElement = document.getElementById('main_grid');
 
         this.scoreElement = document.getElementById('score');
+        this.bestScoreElement = document.getElementById('best_score');
 
         // Keep grid representation in memory
         this.cells = new Array(this.totalRows);
@@ -70,6 +71,10 @@ class Views {
 
     updateScore(newScore) {
         this.scoreElement.innerHTML = newScore;
+    }
+
+    updateBestScore(newBestScore) {
+        this.bestScoreElement.innerHTML = newBestScore;
     }
 
 }

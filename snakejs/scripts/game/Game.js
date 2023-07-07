@@ -17,6 +17,12 @@ class Game {
     }
 
     _initializeGameState() {
+        this._initializeMatchState();
+
+        this.bestScore = 0;
+    }
+
+    _initializeMatchState() {
         this.grid = new Grid(this.config.totalRows(), this.config.totalColumns());
         this.snake = this._initializeSnakeInPosition();
         this._initializeFood();
@@ -99,6 +105,11 @@ class Game {
 
     _end() {
         this.playing = false;
+
+        if (this.score > this.bestScore) {
+            this.bestScore = this.score;
+            this.views.updateBestScore(this.bestScore);
+        } 
     }
 
     _tick() {

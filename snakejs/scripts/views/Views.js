@@ -1,3 +1,4 @@
+import { GameOverScreen } from "./GameOverScreen.js";
 import { ENTITY_TYPES } from "../entityTypes/EntityTypes.js";
 
 const _entityTypeToCssClass = (type) => {
@@ -26,6 +27,8 @@ class Views {
         for (let i = 0; i < this.totalColumns; i++) {
             this.cells[i] = new Array(this.totalColumns);
         }
+
+        this.gameOverScreen = new GameOverScreen();
 
         config.isOnMobile() ? this._configureForMobile() : this._configureForDesktop();
 
@@ -75,6 +78,19 @@ class Views {
 
     updateBestScore(newBestScore) {
         this.bestScoreElement.innerHTML = newBestScore;
+    }
+
+    showGameOverScreen() {
+        this.gameOverScreen.open();
+    }
+
+    showGameOverScreenWithNewBestScore(newScore) {
+        this.gameOverScreen.showNewBestScoreMessage(newScore);
+        this.gameOverScreen.open();
+    }
+
+    hideGameOverScreen() {
+        this.gameOverScreen.hide();
     }
 
 }

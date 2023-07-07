@@ -109,7 +109,10 @@ class Game {
         if (this.score > this.bestScore) {
             this.bestScore = this.score;
             this.views.updateBestScore(this.bestScore);
-        } 
+            this.views.showGameOverScreenWithNewBestScore(this.bestScore);
+        } else {
+            this.views.showGameOverScreen();
+        }
     }
 
     _tick() {

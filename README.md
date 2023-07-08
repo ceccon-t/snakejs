@@ -17,3 +17,11 @@ As an initial one-time step, clone the repository to a folder in your computer, 
 Afterwards, just run `npm start` on a terminal while in the project's main folder. The application will be accessible by opening up your browser and going to `http://localhost:8080/`.
 
 Alternatively, you can just start any web server of your chooing while using the `snakejs` folder as the root and the application will be available by navigating to the server's configured host and port. Since the code uses only vanilla HTML, CSS and JavaScript, no build step is required.
+
+## How to run tests
+
+First make sure you have installed the dependencies (check section "How to run locally").
+
+Then at any time run `npm test` on a terminal while in the project's main folder.
+
+The results will be displayed in the standard output.

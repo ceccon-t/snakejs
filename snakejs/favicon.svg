@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" >
+
+  <!-- 
+    Description: Simulates an in-game snake making the letter "S".
+
+    Uses lines to draw the body of the snake.
+    Uses same colors for the grid and snake body as in-game.
+    As a small detail, a piece of food is on the top right about to be eaten.
+  -->
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#243424" />
+
+  <!-- Top Row (Upper part of S and an inconspicuous piece of food) -->
+  <!-- The snake -->
+  <line x1="20" y1="20" x2="70" y2="20" stroke="#0BF40A" stroke-width="5" />
+  <!-- The food -->
+  <line x1="75" y1="20" x2="80" y2="20" stroke="#C83C3A" stroke-width="5" />
+
+  <!-- Top-left part of S -->
+  <line x1="22.5" y1="20" x2="22.5" y2="50" stroke="#0BF40A" stroke-width="5" />
+
+  <!-- Middle row -->
+  <line x1="20" y1="50" x2="80" y2="50" stroke="#0BF40A" stroke-width="5" />
+
+  <!-- Bottom-right part of S -->
+  <line x1="77.5" y1="50" x2="77.5" y2="80" stroke="#0BF40A" stroke-width="5" />
+
+  <!-- Bottom row -->
+  <line x1="20" y1="80" x2="80" y2="80" stroke="#0BF40A" stroke-width="5" />  
+
+</svg>
+ 

@@ -14,7 +14,7 @@ it('should initialize on parameterized position', () => {
     const head = snake.getHead();
 
     // Assert
-    expect(head.row()).toEqual(initialRow+1);
+    expect(head.row()).toEqual(initialRow);
     expect(head.column()).toEqual(initialCol);
 });
 

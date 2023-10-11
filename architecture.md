@@ -26,6 +26,12 @@ The framework used is `vitest`, which has an API very similar to `Jest`. The mos
 
 To execute all tests, run `npm test` on the main folder of the application.
 
+## Continuous Integration
+
+The project uses Github Actions to run all automated tests whenever a new commit enters either the `main` or `dev` branches. The script that defines the workflow can be found under `.github/workflows/main-workflow.yml`.
+
+If any test is broken, the build fails and a red failure sign is displayed near the hash of the commit in the repository. If all tests pass, a green success sign is displayed instead.
+
 ## Libraries and Frameworks
 
 [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) as a dependency management tool.
@@ -33,5 +39,7 @@ To execute all tests, run `npm test` on the main folder of the application.
 [http-server](https://www.npmjs.com/package/http-server) as a development server (not needed after deploy).
 
 [vitest](https://vitest.dev/) for automated tests.
+
+[Github Actions](https://docs.github.com/en/actions/learn-github-actions) for continuous integration.
 
 Of these, only npm needs to be manually installed in order to work with the project. The others will be installed automatically when you run `npm install` on the folder that contains the `package.json` file.

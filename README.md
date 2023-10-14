@@ -1,5 +1,7 @@
 # SnakeJS
 
+![Build status](https://github.com/ceccon-t/snakejs/actions/workflows/main-workflow.yml/badge.svg "Build status")
+
 ![New game](https://raw.githubusercontent.com/ceccon-t/snakejs/main/images/snakejs_01_initialState.png "New game")
 
 ## Description

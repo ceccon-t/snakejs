@@ -43,9 +43,19 @@ The most recent version of the game can always be played at [https://snakejs-247
 
 ### With Docker
 
-Make sure you have Docker installed.
+#### Alternative 1: Pure Docker
+
+This alternative does not require cloning/downloading the source files in this repository.
+
+First, make sure you have Docker installed.
 
 From your terminal, run `docker run -p <PORT>:80 ceccont/snakejs:1.0.0` . The app will then be accessible by visiting `localhost:PORT` with a browser while the container is running. For instance, running `docker run -p 8080:80 ceccont/snakejs:1.0.0` will make the app accessible at `localhost:8080`.
+
+#### Alternative 2: docker-compose
+
+Make sure you have Docker and docker-compose installed.
+
+Clone this repository or download the source files and store them in any folder of your drive. Then, navigate to this folder with a terminal and run `docker-compose up` to start serving the application, which will be accessible at `localhost:8080`.
 
 ### With npm
 

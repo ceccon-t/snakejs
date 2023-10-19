@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build image
-        run: docker build . -d ${{ vars.DOCKER_USER }}/snakejs:latest
+        run: docker build . -t ${{ vars.DOCKER_USER }}/snakejs:latest
       - name: Log in to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Push image to Docker Hub

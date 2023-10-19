@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - dev
+      - ga-deploy-dockerhub
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -14,3 +14,10 @@ jobs:
         run: cd snakejs && npm ci
       - name: Run tests
         run: npm test
+  deploy_to_dockerhub:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build image
+        run: echo "docker build . -d ${{ env.DOCKER_USER }}/snakejs:latest"
+  

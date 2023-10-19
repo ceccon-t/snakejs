@@ -49,7 +49,7 @@ This alternative does not require cloning/downloading the source files in this r
 
 First, make sure you have Docker installed.
 
-From your terminal, run `docker run -p <PORT>:80 ceccont/snakejs:1.0.0` . The app will then be accessible by visiting `localhost:PORT` with a browser while the container is running. For instance, running `docker run -p 8080:80 ceccont/snakejs:1.0.0` will make the app accessible at `localhost:8080`.
+From your terminal, run `docker run -p <PORT>:80 ceccont/snakejs` . The app will then be accessible by visiting `localhost:PORT` with a browser while the container is running. For instance, running `docker run -p 8080:80 ceccont/snakejs` will make the app accessible at `localhost:8080`.
 
 #### Alternative 2: docker-compose
 

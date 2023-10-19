@@ -20,4 +20,8 @@ jobs:
     steps:
       - name: Build image
         run: echo "docker build . -d ${{ vars.DOCKER_USER }}/snakejs:latest"
+      - name: Log in to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ DOCKER_PASSWORD }}
+      - name: Push image to Docker Hub
+        run: docker push ${{ vars.DOCKER_USER }}/snakejs:latest
   

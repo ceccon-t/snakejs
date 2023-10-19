@@ -4,7 +4,6 @@ on:
     branches:
       - main
       - ga-deploy-dockerhub
-  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -20,5 +19,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build image
-        run: echo "docker build . -d ${{ env.DOCKER_USER }}/snakejs:latest"
+        run: echo "docker build . -d ${{ vars.DOCKER_USER }}/snakejs:latest"
   

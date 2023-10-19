@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - ga-deploy-dockerhub
 jobs:
   test:
     runs-on: ubuntu-latest
